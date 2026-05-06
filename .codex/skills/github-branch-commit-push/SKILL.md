@@ -1,3 +1,8 @@
+---
+name: github-branch-commit-push
+description: Use after substantial repository changes to manage Git branches, commits, quality gates, and GitHub pushes for SecureMed.
+---
+
 # Skill: GitHub Branch, Commit, and Push
 
 Use this skill after every substantial change.

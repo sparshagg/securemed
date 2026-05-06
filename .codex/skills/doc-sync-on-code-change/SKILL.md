@@ -1,3 +1,8 @@
+---
+name: doc-sync-on-code-change
+description: Use whenever SecureMed code behavior, setup commands, APIs, storage, security behavior, demo flow, or milestones change and docs must stay in sync.
+---
+
 # Skill: Sync Docs on Code Change
 
 Use this whenever code behavior changes.

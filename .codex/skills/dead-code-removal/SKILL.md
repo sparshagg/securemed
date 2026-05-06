@@ -1,3 +1,8 @@
+---
+name: dead-code-removal
+description: Use when code, docs, dependencies, tests, or helpers become unused, duplicated, misleading, or inconsistent with SecureMed prototype scope.
+---
+
 # Skill: Remove Dead or Stale Code
 
 Use this skill when code becomes unused, duplicated, misleading, or inconsistent with the paper scope.
