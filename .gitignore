@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Env/secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Allow explicitly safe public examples if needed
+!keys/public/
+!keys/public/*.pub
+!keys/public/*.pem.example
+
+# Local data
+data/
+*.sqlite3
+*.db
+audit.jsonl
+
+# Node / Circom
+node_modules/
+circuits/build/
+circuits/*.zkey
+circuits/*.ptau
+circuits/*.r1cs
+circuits/*.wasm
+circuits/*.sym
+circuits/witness*.wtns
+proof.json
+public.json
+verification_key.json
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log

@@ -1,0 +1,48 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "id": "bundle-rec-001",
+  "meta": {
+    "profile": [
+      "https://securemed.example/StructureDefinition/fake-emr-demo"
+    ]
+  },
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-demo-001",
+        "identifier": [
+          {
+            "system": "https://securemed.example/pseudonym",
+            "value": "patient_pseudo_001"
+          }
+        ],
+        "name": [
+          {
+            "family": "Demo",
+            "given": [
+              "Alex"
+            ]
+          }
+        ],
+        "gender": "other",
+        "birthDate": "1990-01-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-demo-001",
+        "status": "final",
+        "code": {
+          "text": "Demo blood pressure reading"
+        },
+        "subject": {
+          "reference": "Patient/patient-demo-001"
+        },
+        "valueString": "120/80 mmHg"
+      }
+    }
+  ]
+}

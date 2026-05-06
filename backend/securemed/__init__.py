@@ -1,0 +1,1 @@
+"""SecureMed academic cryptography prototype."""
