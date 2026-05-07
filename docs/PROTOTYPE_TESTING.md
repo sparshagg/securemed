@@ -41,7 +41,7 @@ ruff format --check .
 Current first-slice result:
 
 ```text
-12 passed
+22 passed
 ```
 
 ## Test Quality Rule
@@ -60,3 +60,13 @@ A security feature is incomplete unless it has at least one success test and one
 - Valid hash-chained audit log verification.
 - Modified, deleted, and reordered audit log failure.
 - Audit append rejects an existing tampered chain.
+- X25519/HKDF/AES-GCM DEK wrap/unwrap success.
+- Wrong provider private key failure.
+- Tampered wrapped DEK failure.
+- Tampered release AAD failure.
+- Valid ZKP proof accepted.
+- Invalid ZKP public signal rejected.
+- Full access grant flow decrypts as provider and audits grant.
+- Revoked credential denied without DEK release.
+- Consent denied without DEK release.
+- FastAPI grant flow and audit verification endpoint.

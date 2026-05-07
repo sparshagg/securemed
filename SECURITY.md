@@ -63,10 +63,10 @@ Required tests:
 - [x] AES-GCM decrypt fails when ciphertext is modified.
 - [x] AES-GCM decrypt fails when AAD is modified.
 - [x] Signature verification fails when manifest is modified.
-- [ ] Provider cannot unwrap DEK with wrong private key.
-- [ ] Invalid ZKP is rejected.
-- [ ] Revoked credential is rejected even if proof is otherwise valid.
-- [ ] Consent-denied access request does not release DEK.
+- [x] Provider cannot unwrap DEK with wrong private key.
+- [x] Invalid ZKP is rejected.
+- [x] Revoked credential is rejected even if proof is otherwise valid.
+- [x] Consent-denied access request does not release DEK.
 - [x] Audit chain verification fails after event modification.
 - [x] Audit chain verification fails after event deletion or reordering where feasible.
 
@@ -100,6 +100,10 @@ Current implementation uses `cryptography` `AESGCM`, 256-bit DEKs, random
 12-byte nonces, and ciphertext values with the 16-byte authentication tag
 appended by the library.
 
+DEK release uses provider static X25519 keys, a gateway ephemeral X25519 key per
+release, HKDF-SHA256, and AES-GCM. Release AAD binds record ID, provider ID,
+credential commitment, purpose, and release ID.
+
 ## 7. Signature Rules
 
 - The origin institution or clinician signs record provenance.
@@ -122,11 +126,18 @@ Incorrect claim:
 
 Non-repudiation must come from signatures and audit logs.
 
+Current implementation uses a minimal Circom/snarkjs Groth16 circuit. It proves
+knowledge of a private credential secret, role code, expiry day, and salt whose
+Poseidon commitment matches the public credential commitment, with required role
+equality and expiry after the current day. Revocation remains outside the circuit.
+
 ## 9. Access Gateway Rules
 
 Before releasing a DEK, the gateway must check proof validity, credential expiry, credential revocation, patient consent or emergency override, requested purpose, record existence, and provider key binding.
 
 If any check fails, do not release the DEK.
+
+Current gateway records both grant and deny decisions in the JSONL audit chain.
 
 ## 10. Audit Rules
 
@@ -141,10 +152,10 @@ Current implementation stores audit events as local JSONL and verifies both the
 
 Before final demo:
 
-- [ ] Run all tests.
-- [ ] Search repository for `PRIVATE KEY`.
-- [ ] Search repository for `.env`.
-- [ ] Search repository for fake/real patient leakage.
-- [ ] Verify no actual medical data is present.
-- [ ] Verify README warns users this is academic only.
-- [ ] Verify every failed security condition creates a denied audit entry.
+- [x] Run all tests.
+- [x] Search repository for `PRIVATE KEY`.
+- [x] Search repository for `.env`.
+- [x] Search repository for fake/real patient leakage.
+- [x] Verify no actual medical data is present.
+- [x] Verify README warns users this is academic only.
+- [x] Verify every failed security condition creates a denied audit entry.

@@ -1,0 +1,15 @@
+{
+  "name": "securemed-zkp-tooling",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local snarkjs tooling for the SecureMed academic prototype",
+  "scripts": {
+    "zkp:commitment": "node scripts/zkp/credential_commitment.mjs",
+    "zkp:verify": "snarkjs groth16 verify circuits/build/verification_key.json public.json proof.json"
+  },
+  "dependencies": {
+    "circomlib": "^2.0.5",
+    "circomlibjs": "^0.1.7",
+    "snarkjs": "^0.7.5"
+  }
+}

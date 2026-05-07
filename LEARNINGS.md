@@ -37,3 +37,17 @@ Keep entries concise and useful.
 **Learning:** `AESGCM.encrypt` returns ciphertext with the 16-byte tag appended, and `decrypt` rejects wrong ciphertext, key, nonce, or AAD with `InvalidTag`.  
 **Decision/Impact:** Store one `ciphertext_b64` field plus `nonce_b64` for the first encrypted payload representation.  
 **Files touched:** `backend/securemed/crypto/aes_gcm.py`, `SECURITY.md`.
+
+## 2026-05-07 — snarkjs public signal order includes output first
+
+**Context:** Verifying the real Circom/snarkjs credential proof.
+**Learning:** snarkjs public signals for this circuit are ordered as the public output followed by public inputs.
+**Decision/Impact:** Verify `eligible == 1` first, then compare credential commitment, required role, and current day.
+**Files touched:** `backend/securemed/zkp/credential.py`, `backend/tests/test_full_demo_flow.py`.
+
+## 2026-05-07 — package module type can break Circom witness code
+
+**Context:** Running generated Circom witness code under Node.js.
+**Learning:** Setting package-wide `"type": "module"` makes Circom's generated CommonJS `generate_witness.js` fail.
+**Decision/Impact:** Keep the project package as CommonJS-compatible and use `.mjs` only for the Poseidon commitment helper.
+**Files touched:** `package.json`, `scripts/zkp/credential_commitment.mjs`.

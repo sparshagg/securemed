@@ -43,7 +43,7 @@ Exit criteria:
 
 - [x] Implement append-only JSONL or SQLite-backed audit entries.
 - [x] Add previous-hash and entry-hash fields.
-- [ ] Add audit verification script.
+- [x] Add audit verification script.
 - [x] Add tests for audit tampering detection.
 
 Exit criteria:
@@ -51,23 +51,23 @@ Exit criteria:
 
 ## Milestone 3 — Key Release / HPKE-Inspired Wrapping
 
-- [ ] Implement provider X25519 key generation.
-- [ ] Implement X25519 shared secret derivation.
-- [ ] Derive wrapping key using HKDF-SHA256.
-- [ ] Wrap DEK using AES-GCM with release context as AAD.
-- [ ] Add provider unwrap/decrypt flow.
-- [ ] Add tests for wrong provider key failure.
+- [x] Implement provider X25519 key generation.
+- [x] Implement X25519 shared secret derivation.
+- [x] Derive wrapping key using HKDF-SHA256.
+- [x] Wrap DEK using AES-GCM with release context as AAD.
+- [x] Add provider unwrap/decrypt flow.
+- [x] Add tests for wrong provider key failure.
 
 Exit criteria:
 - Gateway can release a DEK only to the intended provider key.
 
 ## Milestone 4 — ZKP Credential Proof
 
-- [ ] Create minimal Circom circuit for credential commitment.
-- [ ] Add valid and invalid sample inputs.
-- [ ] Add scripts for compile/setup/prove/verify.
-- [ ] Add Python verifier wrapper around snarkjs verification.
-- [ ] Add tests or demo checks for valid and invalid proof.
+- [x] Create minimal Circom circuit for credential commitment.
+- [x] Add valid and invalid sample inputs.
+- [x] Add scripts for compile/setup/prove/verify.
+- [x] Add Python verifier wrapper around snarkjs verification.
+- [x] Add tests or demo checks for valid and invalid proof.
 
 Exit criteria:
 - Valid provider proof passes.
@@ -76,28 +76,28 @@ Exit criteria:
 
 ## Milestone 5 — Access Gateway API
 
-- [ ] Add FastAPI app.
-- [ ] Add `/setup/demo-data`.
-- [ ] Add `/records/encrypt`.
-- [ ] Add `/provider/register`.
-- [ ] Add `/access/request`.
-- [ ] Add `/audit`.
-- [ ] Add `/audit/verify`.
-- [ ] Add API schemas.
-- [ ] Add API tests.
+- [x] Add FastAPI app.
+- [x] Add `/setup/demo-data`.
+- [x] Add `/records/encrypt`.
+- [x] Add `/provider/register`.
+- [x] Add `/access/request`.
+- [x] Add `/audit`.
+- [x] Add `/audit/verify`.
+- [x] Add API schemas.
+- [x] Add API tests.
 
 Exit criteria:
 - The full demo flow can run through API endpoints.
 
 ## Milestone 6 — Demo and Submission Readiness
 
-- [ ] Add `docs/DEMO_SCRIPT.md`.
-- [ ] Add `docs/PROTOTYPE_TESTING.md`.
+- [x] Add `docs/DEMO_SCRIPT.md`.
+- [x] Add `docs/PROTOTYPE_TESTING.md`.
 - [ ] Add screenshots or terminal output examples if needed.
-- [ ] Add final README setup instructions.
-- [ ] Run full test suite.
-- [ ] Review security checklist.
-- [ ] Prepare final presentation/demo sequence.
+- [x] Add final README setup instructions.
+- [x] Run full test suite.
+- [x] Review security checklist.
+- [x] Prepare final presentation/demo sequence.
 
 Exit criteria:
 - Another student can clone, install, run tests, and run the demo from README alone.

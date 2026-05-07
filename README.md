@@ -50,6 +50,7 @@ Install:
 - Git
 
 Python dependencies are declared in `pyproject.toml`.
+Node dependencies are declared in `package.json`.
 
 ## Quick Start
 
@@ -62,33 +63,48 @@ python -m venv .venv
 source .venv/bin/activate
 
 pip install -e ".[dev]"
+npm install
+
+cargo install --git https://github.com/iden3/circom.git --locked
 ```
 
-Run the first crypto/audit slice:
+Build local ZKP artifacts and run the full demo:
 
 ```bash
+python scripts/setup_zkp.py
+python scripts/run_full_demo.py
 pytest
 ruff check .
 ruff format --check .
 ```
 
-FastAPI endpoints, snarkjs/Circom commands, and the tiny demo UI will be added after
-the core crypto, key wrapping, ZKP, consent/revocation, and audit behavior are
-implemented and tested.
+Run the API and tiny demo UI:
+
+```bash
+fastapi dev
+```
+
+Open:
+
+```text
+http://127.0.0.1:8000/demo
+http://127.0.0.1:8000/docs
+```
 
 ## Main Commands
 
 Current commands:
 
 ```bash
+python scripts/setup_zkp.py
+python scripts/bootstrap_demo.py
+python scripts/run_full_demo.py
+python scripts/verify_audit_log.py
 pytest
 ruff check .
 ruff format --check .
+fastapi dev
 ```
-
-Planned commands such as `python scripts/bootstrap_demo.py`,
-`python scripts/verify_audit_log.py`, and `uvicorn securemed.main:app --reload`
-will be documented when those scripts and API endpoints exist.
 
 ## API Endpoints
 
@@ -103,8 +119,7 @@ will be documented when those scripts and API endpoints exist.
 
 Endpoint details belong in `docs/API.md`.
 
-Status: API endpoints are planned but not implemented in the first crypto/audit
-slice.
+Status: API endpoints are implemented for the local prototype.
 
 ## Test Scenarios
 
@@ -121,13 +136,13 @@ Implemented now:
 7. Wrong signing public key fails signature verification.
 8. Valid audit log chain verifies.
 9. Modified, deleted, and reordered audit log entries are detected.
-
-Planned next:
-
-1. Valid provider can decrypt after X25519/HKDF/AES-GCM DEK wrapping.
-2. Invalid credential proof is denied.
-3. Revoked credential is denied.
-4. Consent-denied request does not release the DEK.
+10. X25519/HKDF/AES-GCM DEK wrapping succeeds for the intended provider.
+11. Wrong provider key, tampered wrapped DEK, and tampered release AAD fail.
+12. Valid ZKP proof is accepted.
+13. Invalid ZKP public signal is rejected.
+14. Revoked credential is denied.
+15. Consent-denied request does not release the DEK.
+16. FastAPI grant flow records an audit event and verifies the chain.
 
 ## Repository Documents
 

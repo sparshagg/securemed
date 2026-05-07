@@ -20,14 +20,21 @@ The audit log records ACCESS_GRANTED.
 
 Commands/endpoints will be filled after implementation.
 
-Current first-slice demo command:
+Current full demo commands:
 
 ```bash
-pytest
+python scripts/setup_zkp.py
+python scripts/run_full_demo.py
+python scripts/verify_audit_log.py
 ```
 
-This proves fake EMR encryption/decryption, provenance verification, and audit
-tamper detection before the API access flow is added.
+For the browser demo:
+
+```bash
+fastapi dev
+```
+
+Open `http://127.0.0.1:8000/demo`.
 
 ## Demo 2 — Invalid Credential Fails
 
@@ -40,6 +47,8 @@ No DEK is released.
 The audit log records ACCESS_DENIED.
 ```
 
+Covered by pytest through invalid ZKP public-signal denial.
+
 ## Demo 3 — Revoked Credential Fails
 
 Expected story:
@@ -48,6 +57,8 @@ Expected story:
 The ZKP may be mathematically valid, but the credential commitment is in the revoked list.
 The gateway denies access.
 ```
+
+Covered by pytest through revoked commitment denial after a valid proof.
 
 ## Demo 4 — Tampered Record Fails
 
@@ -66,6 +77,12 @@ Expected story:
 ```text
 An old audit entry is edited.
 Audit chain verification fails.
+```
+
+Command:
+
+```bash
+python scripts/verify_audit_log.py
 ```
 
 ## Final Explanation

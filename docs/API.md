@@ -1,6 +1,6 @@
 # API.md — SecureMed Prototype API
 
-This file will document the FastAPI endpoints once implemented.
+This file documents the implemented FastAPI endpoints.
 
 ## Planned Endpoints
 
@@ -12,6 +12,7 @@ This file will document the FastAPI endpoints once implemented.
 | POST | `/access/request` | Request access to an encrypted record |
 | GET | `/audit` | List audit events |
 | POST | `/audit/verify` | Verify audit hash chain |
+| GET | `/demo` | Tiny local demo page |
 
 ## Access Request Contract
 
@@ -22,9 +23,8 @@ Expected request fields:
   "record_id": "rec_001",
   "provider_id": "provider_001",
   "purpose": "treatment",
-  "provider_x25519_public_key": "...",
   "zkp_proof": {},
-  "zkp_public_signals": []
+  "zkp_public_signals": ["1", "...commitment", "7", "20580"]
 }
 ```
 
@@ -54,3 +54,12 @@ Expected denial response:
 ```
 
 Update this file as endpoints are implemented.
+
+## Run
+
+```bash
+python scripts/setup_zkp.py
+fastapi dev
+```
+
+Open `http://127.0.0.1:8000/docs` for the interactive API docs.
