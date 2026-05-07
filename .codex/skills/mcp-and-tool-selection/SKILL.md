@@ -1,3 +1,8 @@
+---
+name: mcp-and-tool-selection
+description: Use before adding external tools, MCP servers, services, integrations, or non-default tooling to keep SecureMed scoped to local paper-required prototype needs.
+---
+
 # Skill: MCP and Tool Selection
 
 Use this before adding external tools, MCP servers, services, or integrations.

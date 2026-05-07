@@ -1,3 +1,8 @@
+---
+name: latest-docs-first
+description: Use before implementing or modifying code that depends on external tools, libraries, frameworks, CLIs, or integrations so official current documentation is checked first.
+---
+
 # Skill: Latest Docs First
 
 Use this skill before writing code that depends on external tools, libraries, frameworks, or CLIs.

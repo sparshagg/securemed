@@ -1,3 +1,8 @@
+---
+name: test-and-quality-gate
+description: Use before marking SecureMed work complete to run tests, lint/format checks, negative security tests, docs checks, and secret-safety review.
+---
+
 # Skill: Test and Quality Gate
 
 Use before marking any task complete.

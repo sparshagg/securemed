@@ -1,3 +1,8 @@
+---
+name: secure-crypto-implementation
+description: Use for SecureMed cryptography, ZKP, key release, access-control, consent, revocation, provenance, and audit-security changes.
+---
+
 # Skill: Secure Crypto Implementation
 
 Use this skill for any change under `backend/securemed/crypto`, `backend/securemed/zkp`, or access-control code.
