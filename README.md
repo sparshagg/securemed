@@ -154,6 +154,7 @@ Implemented now:
 | `SECURITY.md` | Threat model and secure coding rules |
 | `DATABASE.md` | Storage/schema design |
 | `LEARNINGS.md` | Lessons discovered during development |
+| `docs/PHASE3_PRESENTATION_SCRIPT.md` | Phase III deck review and 3-minute two-speaker script |
 | `.codex/skills/` | Reusable agent skills |
 | `.codex/workflows/` | Repeatable implementation workflows |
 
