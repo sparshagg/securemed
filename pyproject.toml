@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "cryptography>=43,<50",
+    "fastapi[standard]>=0.115,<1",
 ]
 
 [project.optional-dependencies]
@@ -25,10 +26,12 @@ packages = ["backend/securemed"]
 testpaths = ["backend/tests"]
 pythonpath = ["backend"]
 
+[tool.fastapi]
+entrypoint = "securemed.main:app"
+
 [tool.ruff]
 target-version = "py311"
 line-length = 88
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "I", "UP", "B"]
-

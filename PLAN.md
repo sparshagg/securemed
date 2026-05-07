@@ -11,7 +11,7 @@ Legend:
 [!] Blocked
 ```
 
-## Current Sprint: Bootstrap and First Working Crypto Slice
+## Current Sprint: Full Demo Flow
 
 ### Done
 
@@ -29,17 +29,21 @@ Legend:
 - [x] Ran pytest and ruff checks.
 - [x] Updated README and security/testing docs with exact commands.
 - [x] Committed first backend crypto/audit slice.
-- [x] Checked Git remote; no remote is configured, so push was skipped.
-
-### Doing
-
-- [~] Ready to start X25519/HKDF/AES-GCM DEK wrapping next.
+- [x] Merged FastAPI skill cleanup into `main`.
+- [x] Added FastAPI, ZKP, and demo dependencies.
+- [x] Implemented X25519/HKDF/AES-GCM DEK wrapping.
+- [x] Implemented JSON state, consent, revocation, and access gateway checks.
+- [x] Added real Circom/snarkjs credential proof tooling.
+- [x] Added FastAPI API endpoints and tiny demo UI.
+- [x] Added demo and audit verification scripts.
+- [x] Added unit and integration tests for grant/deny flows.
+- [x] Ran pytest and ruff checks for full demo flow.
+- [x] Updated final docs and quality gates.
+- [x] Ran final secret/artifact scan.
 
 ### Next
 
-- [ ] Implement X25519/HKDF/AES-GCM DEK wrapping.
-- [ ] Add key wrapping success and wrong-provider-key tests.
-- [ ] Add audit verification command.
+- [ ] Commit and push `feat/full-demo-flow`.
 
 ## Backlog
 
@@ -85,6 +89,6 @@ Legend:
 
 ## Blockers / Questions
 
-- [ ] Confirm whether the team wants SQLite or JSON files for first implementation.
-- [ ] Confirm whether a frontend is required by the instructor or whether FastAPI Swagger is enough.
-- [ ] Confirm whether snarkjs/Circom installation must be included in the demo or can be preinstalled.
+- [x] Use JSON/JSONL storage for the full local demo.
+- [x] Add a tiny FastAPI-served demo UI after the API works.
+- [x] Use real Circom/snarkjs tooling; stop on concrete install/runtime blockers instead of mocking ZKP.

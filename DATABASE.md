@@ -4,8 +4,8 @@ This file defines the storage model. Keep it updated whenever schemas change.
 
 The prototype can start with JSON files and later move to SQLite if needed. Prefer SQLite once API endpoints exist.
 
-Current first slice uses JSON files for fake fixtures and JSONL for audit tests.
-Encrypted record persistence and SQLite schemas are planned for later API work.
+Current implementation uses JSON files and JSONL for the local demo. SQLite is
+not needed for the academic prototype.
 
 ## 1. Storage Principles
 
@@ -21,11 +21,19 @@ Expected local stores:
 
 ```text
 data/
-  securemed.sqlite3
   audit.jsonl
-  encrypted_records/
-  public_keys/
+  records.json
+  providers.json
+  consent_policies.json
+  revoked_credentials.json
+  private/
+    record_keys.json
+    provider_private.json
   zk/
+    credential_input.json
+    proof.json
+    public.json
+    credential_witness.wtns
 ```
 
 These are runtime artifacts and should generally not be committed unless they are tiny fake fixtures.
@@ -63,6 +71,10 @@ Stores DEKs wrapped or sealed for internal use.
 | `wrap_alg` | text | Example: `LOCAL-DEMO-AESGCM` |
 | `key_version` | integer | KEK/key version |
 | `created_at` | text | ISO timestamp |
+
+Current JSON demo stores raw DEKs in ignored `data/private/record_keys.json`
+only so the local gateway can demonstrate later release wrapping. This file must
+never be committed.
 
 ### providers
 

@@ -48,3 +48,11 @@ def public_key_pem(public_key: ec.EllipticCurvePublicKey) -> str:
         encoding=serialization.Encoding.PEM,
         format=serialization.PublicFormat.SubjectPublicKeyInfo,
     ).decode("ascii")
+
+
+def load_public_key_pem(value: str) -> ec.EllipticCurvePublicKey:
+    """Load a P-256 public key from PEM."""
+    key = serialization.load_pem_public_key(value.encode("ascii"))
+    if not isinstance(key, ec.EllipticCurvePublicKey):
+        raise TypeError("provenance public key must be an elliptic-curve key")
+    return key
