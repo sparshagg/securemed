@@ -2,6 +2,8 @@
 
 Use this script for the final prototype demo.
 
+For the 3-minute two-speaker presentation script and Phase II PPT review, see `docs/PHASE3_PRESENTATION_SCRIPT.md`.
+
 ## Demo Goal
 
 Show that SecureMed can enforce secure medical record sharing using encryption, signatures, ZKP-based eligibility, key release, and tamper-evident audit logs.

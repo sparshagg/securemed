@@ -11,7 +11,7 @@ Legend:
 [!] Blocked
 ```
 
-## Current Sprint: Full Demo Flow
+## Current Sprint: Phase III Presentation Prep
 
 ### Done
 
@@ -40,10 +40,13 @@ Legend:
 - [x] Ran pytest and ruff checks for full demo flow.
 - [x] Updated final docs and quality gates.
 - [x] Ran final secret/artifact scan.
+- [x] Committed and merged `feat/full-demo-flow`.
+
+- [x] Review Phase II deck against implemented prototype and write 3-minute two-speaker script.
 
 ### Next
 
-- [ ] Commit and push `feat/full-demo-flow`.
+- [ ] Commit and push presentation-prep docs branch.
 
 ## Backlog
 
