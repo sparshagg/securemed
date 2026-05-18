@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import shutil
 import subprocess
 from pathlib import Path
 
+import pytest
 from fastapi.testclient import TestClient
 from securemed.api.routes import get_store
 from securemed.main import app
@@ -23,6 +25,8 @@ from securemed.zkp.credential import ZkpVerificationError, verify_credential_pro
 
 def _ensure_zkp_artifacts() -> None:
     if not Path("circuits/build/verification_key.json").exists():
+        if shutil.which("circom") is None:
+            pytest.skip("circom is not installed; ZKP tests require circom toolchain")
         subprocess.run(["python3", "scripts/setup_zkp.py"], check=True)
 
 
